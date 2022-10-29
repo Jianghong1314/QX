@@ -1,0 +1,23 @@
+/*******************************
+  公众号:木木IOS分享
+关注了解更多新科技！！！
+丸漫我的页面
+脚本名称:wm我的页面
+*******************************
+[rewrite_local]
+^http[s]?:\/\/miniapi.dreamwanman.com\/user\/v1\/user\/user_info.+$ url script-response-body wm.js
+[mitm] 
+hostname = *.dreamwanman.*
+*******************************
+Surge
+
+[Script]
+^http[s]?:\/\/miniapi.dreamwanman.com\/user\/v1\/user\/user_info.+$ requires-body=1,max-size=0,script-path=wm.js
+
+[MITM]
+hostname = *.dreamwanman.*
+
+*******************************/
+var obj = JSON.parse($response.body);
+    obj.data.wz_num=  88888;
+    $done({body: JSON.stringify(obj)})
