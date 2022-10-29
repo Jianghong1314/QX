@@ -1,0 +1,24 @@
+/*******************************
+
+脚本名称:wm我的页面
+使用声明：️此脚本仅供学习与交流，
+        请勿转载与贩卖！️️️
+群1077223830
+*******************************
+[rewrite_local]
+^http[s]?:\/\/miniapi.dreamwanman.com\/user\/v1\/user\/user_info.+$ url script-response-body .js
+[mitm] 
+hostname = *.dreamwanman.*
+*******************************
+Surge
+
+[Script]
+^http[s]?:\/\/miniapi.dreamwanman.com\/user\/v1\/user\/user_info.+$ requires-body=1,max-size=0,script-path=dreamwanman.js
+
+[MITM]
+hostname = *.dreamwanman.*
+
+*******************************/
+var obj = JSON.parse($response.body);
+    obj.data.wz_num=  88888;
+    $done({body: JSON.stringify(obj)});
